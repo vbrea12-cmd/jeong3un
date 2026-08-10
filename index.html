@@ -4,26 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- 브라우저 상단 탭 제목 -->
     <title>기우제 (祈雨祭) | 월간 플레이리스트 아카이브</title>
 
-    <!-- 👇 브라우저 탭 아이콘 (파비콘) 설정 -->
     <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <!-- PNG 이미지를 사용할 경우 아래 태그 사용 -->
-    <!-- <link rel="icon" href="favicon-32x32.png" type="image/png">
 
-    <!-- 1. 썸네일 전용 이미지 (크롤러 우선 수집을 위해 상단 배치) -->
-    <!-- ⚠️ 아래 도메인 주소를 본인의 실제 사이트 주소로 꼭 변경하세요. -->
     <meta property="og:image" content="https://vbrea12-cmd.github.io/jeong3un/1.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
 
-    <!-- 2. SNS / 카카오톡 공유 기본 태그 -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="기우제 (祈雨祭) | 월간 플레이리스트 아카이브">
     <meta property="og:description" content="By 곽정은">
 
-    <!-- 구글 무료 폰트: Noto Sans KR -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
@@ -84,7 +76,7 @@
             display: flex;
             flex-direction: column;
             gap: 24px;
-            margin-bottom: 60px;
+            margin-bottom: 40px;
         }
 
         .article-block {
@@ -115,14 +107,15 @@
             margin-bottom: 0;
         }
 
-        /* === 01 제목 겸 펼치기/접기 버튼 (구분선 제거) === */
+        /* === 01 버튼 (접혀있을 때 밑선 표시 및 간격 조정) === */
         .toggle-btn {
             display: flex;
             justify-content: space-between;
             align-items: center;
             width: 100%;
-            padding: 0 0 12px 0;
+            padding: 0 0 24px 0; /* 글자와 하단 선 사이 간격을 24px로 조정 */
             border: none;
+            border-bottom: 1px solid #f0f0f0;
             background: none;
             font-family: inherit;
             font-size: 1.35rem;
@@ -132,6 +125,12 @@
             text-align: left;
             user-select: none;
             letter-spacing: -0.3px;
+        }
+
+        /* 펼쳐졌을 때는 버튼 밑선 제거 */
+        .toggle-btn.active {
+            border-bottom: none;
+            padding-bottom: 0;
         }
 
         .toggle-btn .icon {
@@ -150,15 +149,33 @@
             color: #111111;
         }
 
-        /* === 펼쳐질 01 본문 ~ 03 컨테이너 === */
+        /* === 펼쳐지는 영역 (03 맨 아래 밑선 생성) === */
         .more-stories {
             display: none;
             flex-direction: column;
             gap: 24px;
+            margin-top: 24px;
         }
 
         .more-stories.show {
             display: flex;
+            border-bottom: 1px solid #f0f0f0;
+            padding-bottom: 24px;
+        }
+
+        /* === 히어로 이미지 === */
+        .hero-photo {
+            margin: 40px 0;
+            width: 100%;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .hero-photo img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
         }
 
         /* === 공통 섹션 타이틀 === */
@@ -171,9 +188,8 @@
 
         /* === 플레이리스트 섹션 === */
         .playlist-section {
-            margin-top: 60px;
-            padding-top: 40px;
-            border-top: 1px solid #eeeeee;
+            margin-top: 40px;
+            padding-top: 0;
         }
 
         .playlist-grid {
@@ -362,20 +378,20 @@
         <!-- 본문 텍스트 -->
         <div class="content-section">
 
-            <!-- Prologue: 상시 노출 -->
+            <!-- Prologue -->
             <div class="article-block">
                 <h2>Prologue | 여행을 즐기는 방법: 나만의 장치를 만드는 일</h2>
                 <p>그동안 나의 재생목록은 그저 들었던 노래들의 흔적이 쌓여있는 단순한 무덤에 불과했다. 누군가와 나눠듣지도 못할 정도로. 꽂힌 몇 곡만 주야장천 듣다 질리면 다음 곡을 추가하는 식이었다.</p>
                 <p>그러다 낯선 곳으로 떠나며 처음으로 목적이 있는 플레이리스트를 만들었다. 여행지의 풍경과 기분을 상상하며 곡의 순서와 기승전결을 고심해 끄적이는 것. 구글맵과 눈앞의 길이 정녕 같은 길인지 톺아볼 때 그 정성스러운 약간의 소음과 적절한 노래들은 지친 발걸음을 잊게 해주었다. 이 사소하고 치밀한 준비가 '기우제'의 시작이었다.</p>
             </div>
 
-            <!-- 01 제목 (클릭 시 01 본문 ~ 03 본문 전체가 펼쳐지는 버튼) -->
+            <!-- 01 버튼 -->
             <button type="button" class="toggle-btn" id="storyToggleBtn" onclick="toggleStories()">
                 <span>01 | 길에서 주운 취향</span>
                 <span class="icon">∨</span>
             </button>
 
-            <!-- 펼쳐지는 영역 (01 본문부터 03 내용까지 포함) -->
+            <!-- 펼쳐지는 영역 (01 ~ 03) -->
             <div class="more-stories" id="moreStories">
                 
                 <div class="article-block">
@@ -400,12 +416,16 @@
 
         </div>
 
-        <!-- 플레이리스트 섹션 (역순 정렬) -->
+        <!-- 메인 사진 -->
+        <div class="hero-photo">
+            <img src="0.jpg" alt="메인 이미지">
+        </div>
+
+        <!-- 플레이리스트 섹션 -->
         <div class="playlist-section">
             <h2 class="section-title">Playlists</h2>
             <div class="playlist-grid">
 
-                <!-- 26년 8월 -->
                 <a href="https://www.youtube.com/playlist?list=PLBffsOY2jTQo" target="_blank" class="playlist-link">
                     <div class="playlist-card">
                         <div class="playlist-header">
@@ -417,11 +437,10 @@
                             </div>
                             <span class="month-tag">26.08</span>
                         </div>
-                        <div class="btn-play">▶   P l a y</div>
+                        <div class="btn-play">▶ P l a y</div>
                     </div>
                 </a>
 
-                <!-- 26년 7월 (2) -->
                 <a href="https://www.youtube.com/playlist?list=PLxMOuIrpKLt_ZC9-bkKXz4m_LKsf5G3b0" target="_blank" class="playlist-link">
                     <div class="playlist-card">
                         <div class="playlist-header">
@@ -433,11 +452,10 @@
                             </div>
                             <span class="month-tag">26.07</span>
                         </div>
-                        <div class="btn-play">▶   P l a y</div>
+                        <div class="btn-play">▶ P l a y</div>
                     </div>
                 </a>
 
-                <!-- 26년 7월 (1) -->
                 <a href="https://www.youtube.com/playlist?list=PLxMOuIrpKLt9iJuMzWSbUuEEmXEgk0mdG" target="_blank" class="playlist-link">
                     <div class="playlist-card">
                         <div class="playlist-header">
@@ -449,11 +467,10 @@
                             </div>
                             <span class="month-tag">26.07</span>
                         </div>
-                        <div class="btn-play">▶   P l a y</div>
+                        <div class="btn-play">▶ P l a y</div>
                     </div>
                 </a>
 
-                <!-- 26년 6월 (2) -->
                 <a href="https://www.youtube.com/playlist?list=PLxMOuIrpKLt9iebI1fqwFPWSJXSq0rLf8" target="_blank" class="playlist-link">
                     <div class="playlist-card">
                         <div class="playlist-header">
@@ -466,11 +483,10 @@
                             </div>
                             <span class="month-tag">26.06</span>
                         </div>
-                        <div class="btn-play">▶   P l a y</div>
+                        <div class="btn-play">▶ P l a y</div>
                     </div>
                 </a>
 
-                <!-- 26년 6월 (1) -->
                 <a href="https://www.youtube.com/playlist?list=PLxMOuIrpKLt_ZOa_V6LWRxGaOH0mvQtKL" target="_blank" class="playlist-link">
                     <div class="playlist-card">
                         <div class="playlist-header">
@@ -482,11 +498,10 @@
                             </div>
                             <span class="month-tag">26.06</span>
                         </div>
-                        <div class="btn-play">▶   P l a y</div>
+                        <div class="btn-play">▶ P l a y</div>
                     </div>
                 </a>
 
-                <!-- 26년 5월 (2) -->
                 <a href="https://www.youtube.com/playlist?list=PLxMOuIrpKLt8IWhT8AHQNoFEbPbXe_SK-" target="_blank" class="playlist-link">
                     <div class="playlist-card">
                         <div class="playlist-header">
@@ -499,11 +514,10 @@
                             </div>
                             <span class="month-tag">26.05</span>
                         </div>
-                        <div class="btn-play">▶   P l a y</div>
+                        <div class="btn-play">▶ P l a y</div>
                     </div>
                 </a>
 
-                <!-- 26년 5월 (1) -->
                 <a href="https://www.youtube.com/playlist?list=PLxMOuIrpKLt9XKi5e_HrIU6jSdoccWBFE" target="_blank" class="playlist-link">
                     <div class="playlist-card">
                         <div class="playlist-header">
@@ -515,11 +529,10 @@
                             </div>
                             <span class="month-tag">26.05</span>
                         </div>
-                        <div class="btn-play">▶   P l a y</div>
+                        <div class="btn-play">▶ P l a y</div>
                     </div>
                 </a>
 
-                <!-- 26년 4월 -->
                 <a href="https://www.youtube.com/playlist?list=PLxMOuIrpKLt8RI0k6qTKQ_YNaZNkZbmGM" target="_blank" class="playlist-link">
                     <div class="playlist-card">
                         <div class="playlist-header">
@@ -531,11 +544,10 @@
                             </div>
                             <span class="month-tag">26.04</span>
                         </div>
-                        <div class="btn-play">▶   P l a y</div>
+                        <div class="btn-play">▶ P l a y</div>
                     </div>
                 </a>
 
-                <!-- 26년 3월 -->
                 <a href="https://www.youtube.com/playlist?list=PLxMOuIrpKLt9eKvs3boMtPgc_Zw0ooRBd" target="_blank" class="playlist-link">
                     <div class="playlist-card">
                         <div class="playlist-header">
@@ -547,11 +559,10 @@
                             </div>
                             <span class="month-tag">26.03</span>
                         </div>
-                        <div class="btn-play">▶   P l a y</div>
+                        <div class="btn-play">▶ P l a y</div>
                     </div>
                 </a>
 
-                <!-- 26년 2월 -->
                 <a href="https://www.youtube.com/playlist?list=PLxMOuIrpKLt-yRuYbZVkIV6LB2uy_3_FG" target="_blank" class="playlist-link">
                     <div class="playlist-card">
                         <div class="playlist-header">
@@ -564,11 +575,10 @@
                             </div>
                             <span class="month-tag">26.02</span>
                         </div>
-                        <div class="btn-play">▶   P l a y</div>
+                        <div class="btn-play">▶ P l a y</div>
                     </div>
                 </a>
 
-                <!-- 26년 1월 (2) -->
                 <a href="https://www.youtube.com/playlist?list=PLxMOuIrpKLt-vcnNqMDGvjZdUhDN0cPeY" target="_blank" class="playlist-link">
                     <div class="playlist-card">
                         <div class="playlist-header">
@@ -581,11 +591,10 @@
                             </div>
                             <span class="month-tag">26.01</span>
                         </div>
-                        <div class="btn-play">▶   P l a y</div>
+                        <div class="btn-play">▶ P l a y</div>
                     </div>
                 </a>
 
-                <!-- 26년 1월 (1) -->
                 <a href="https://www.youtube.com/playlist?list=PLxMOuIrpKLt-SxHlsWVPv9jY0R2q1KZ6t" target="_blank" class="playlist-link">
                     <div class="playlist-card">
                         <div class="playlist-header">
@@ -598,11 +607,10 @@
                             </div>
                             <span class="month-tag">26.01</span>
                         </div>
-                        <div class="btn-play">▶   P l a y</div>
+                        <div class="btn-play">▶ P l a y</div>
                     </div>
                 </a>
 
-                <!-- 25년 12월 -->
                 <a href="https://www.youtube.com/playlist?list=PLxMOuIrpKLt99n3zZ4F_t_hTYaMpLXmUI" target="_blank" class="playlist-link">
                     <div class="playlist-card">
                         <div class="playlist-header">
@@ -615,11 +623,10 @@
                             </div>
                             <span class="month-tag">25.12</span>
                         </div>
-                        <div class="btn-play">▶   P l a y</div>
+                        <div class="btn-play">▶ P l a y</div>
                     </div>
                 </a>
 
-                <!-- 25년 11월 -->
                 <a href="https://www.youtube.com/playlist?list=PLxMOuIrpKLt8EnXJRLbnxU1Bh6ngbdQRO" target="_blank" class="playlist-link">
                     <div class="playlist-card">
                         <div class="playlist-header">
@@ -631,7 +638,7 @@
                             </div>
                             <span class="month-tag">25.11</span>
                         </div>
-                        <div class="btn-play">▶   P l a y</div>
+                        <div class="btn-play">▶ P l a y</div>
                     </div>
                 </a>
 
@@ -640,8 +647,6 @@
 
         <!-- 사진 갤러리 섹션 -->
         <div class="photo-section">
-            <h2 class="section-title"></h2>
-            
             <div class="photo-grid-4">
                 <div class="photo-item"><img src="1.jpg" alt="사진 1"></div>
                 <div class="photo-item"><img src="2.jpg" alt="사진 2"></div>
@@ -662,7 +667,7 @@
 
     </div>
 
-    <!-- 스크립트: 펼치기/접기 제어 -->
+    <!-- 스크립트 -->
     <script>
         function toggleStories() {
             const btn = document.getElementById('storyToggleBtn');
