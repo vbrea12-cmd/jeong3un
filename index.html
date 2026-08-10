@@ -215,12 +215,19 @@
             transform: scale(1.04);
         }
 
+        /* 0번 사진: 1행 1열 (단독 배치) */
+        .photo-grid-1 {
+            display: grid;
+            grid-template-columns: 1fr;
+            margin-bottom: 16px;
+        }
+
         /* 1~4번 사진: 2행 2열 레이아웃 */
         .photo-grid-4 {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 16px;
-            margin-bottom: 24px;
+            margin-bottom: 16px;
         }
 
         /* 5~7번 사진: 1행 3열 레이아웃 */
@@ -497,6 +504,11 @@
         <div class="photo-section">
             <h2 class="section-title"></h2>
             
+            <!-- 0번 사진 (1행 1열 단독 배치) -->
+            <div class="photo-grid-1">
+                <div class="photo-item"><img src="0.jpg" alt="사진 0"></div>
+            </div>
+
             <!-- 1~4번 사진 (2행 2열) -->
             <div class="photo-grid-4">
                 <div class="photo-item"><img src="1.jpg" alt="사진 1"></div>
