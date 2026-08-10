@@ -201,7 +201,7 @@
             border-radius: 8px;
             font-size: 0.9rem;
             font-weight: 600;
-            color: #111111;
+            color: #fa1e1e;
         }
 
         /* === 사진 갤러리 섹션 === */
@@ -239,10 +239,10 @@
             margin-bottom: 16px;
         }
 
-        /* 5~7번 사진: 1행 3열 레이아웃 */
-        .photo-grid-3 {
+        /* 5~6번 사진: 1행 2열 레이아웃 */
+        .photo-grid-2 {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(2, 1fr);
             gap: 16px;
         }
 
@@ -280,9 +280,6 @@
             }
             .playlist-grid {
                 grid-template-columns: 1fr;
-            }
-            .photo-grid-3 {
-                grid-template-columns: repeat(2, 1fr);
             }
         }
     </style>
@@ -579,11 +576,10 @@
                 <div class="photo-item"><img src="4.jpg" alt="사진 4"></div>
             </div>
 
-            <!-- 5~7번 사진 (1행 3열) -->
-            <div class="photo-grid-3">
+            <!-- 5~6번 사진 (1행 2열) -->
+            <div class="photo-grid-2">
                 <div class="photo-item"><img src="5.jpg" alt="사진 5"></div>
                 <div class="photo-item"><img src="6.jpg" alt="사진 6"></div>
-                <div class="photo-item"><img src="7.jpg" alt="사진 7"></div>
             </div>
         </div>
 
